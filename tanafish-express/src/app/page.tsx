@@ -2,8 +2,18 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { 
-  Waves, ChefHat, ShieldCheck, ArrowRight, User, ShoppingBag, 
-  MapPin, Anchor, Sparkles, HeartHandshake, CheckCircle2, Clock, Fish
+  Waves, 
+  ChefHat, 
+  ShieldCheck, 
+  ArrowRight, 
+  User, 
+  ShoppingBag, 
+  MapPin, 
+  Anchor, 
+  HeartHandshake, 
+  CheckCircle2, 
+  Clock, 
+  Fish 
 } from "lucide-react";
 import { TopNav } from "@/components/nav";
 import { Button } from "@/components/ui";
@@ -53,8 +63,8 @@ export default function Landing() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#f6fafc]">
-      {/* Top Banner Ticker: Live Local Atmosphere */}
+    <div className="min-h-screen bg-[#f6fafc]">
+      {/* Top Banner Ticker */}
       <div className="bg-gradient-to-r from-lake-950 via-lake-900 to-lake-950 px-4 py-2 text-center text-xs font-medium text-lake-100 border-b border-lake-800/80">
         <span className="inline-flex items-center gap-2">
           <span className="flex h-2 w-2 rounded-full bg-lime-400 animate-ping" />
@@ -62,7 +72,7 @@ export default function Landing() {
         </span>
       </div>
 
-      {/* HERO SECTION */}
+      {/* Hero Section */}
       <section className="hero-bg lake-water-texture wave-divider relative overflow-hidden pb-32 pt-4 text-white">
         <div className="relative z-20">
           <div className="[&_header]:border-white/10 [&_header]:bg-transparent [&_header_a]:text-white [&_header_span]:text-white">
@@ -71,7 +81,6 @@ export default function Landing() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-6xl px-4 pt-12 md:pt-20">
-          {/* Friendly pill badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-lime-400/30 bg-lake-900/60 px-4 py-1.5 text-xs font-semibold text-lime-300 backdrop-blur-md shadow-sm">
             <Anchor size={14} className="text-lime-400" />
             <span>{t("heroBadge")}</span>
@@ -86,7 +95,6 @@ export default function Landing() {
             {t("heroSub")}
           </p>
 
-          {/* Action CTAs */}
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Link href="/marketplace">
               <Button
@@ -124,7 +132,6 @@ export default function Landing() {
             )}
           </div>
 
-          {/* Quick trust metrics */}
           <div className="mt-12 grid grid-cols-2 gap-4 border-t border-white/15 pt-8 sm:grid-cols-4 sm:gap-6">
             <div>
               <p className="font-display text-2xl font-black text-lime-400">100%</p>
@@ -135,7 +142,7 @@ export default function Landing() {
               <p className="text-xs text-lake-200">Gende Wuha, Mangie, Shimbit, Gorgora</p>
             </div>
             <div>
-              <p className="font-display text-2xl font-black text-lime-400">&lt; 45 min</p>
+              <p className="font-display text-2xl font-black text-lime-400">{"< 45 min"}</p>
               <p className="text-xs text-lake-200">Average Delivery in Bahir Dar</p>
             </div>
             <div>
@@ -146,7 +153,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* THREE HUMAN VALUE PROPOSITIONS */}
+      {/* Value Propositions */}
       <section className="relative z-20 mx-auto -mt-14 max-w-6xl px-4 pb-16">
         <div className="grid gap-5 md:grid-cols-3">
           {values.map(({ icon: Icon, title, body, tag, color }) => (
@@ -177,7 +184,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* POPULAR DISH & CATCH SHOWCASE TEASER */}
+      {/* Popular Dish & Catch Showcase */}
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-3">
           <div>
@@ -206,7 +213,3 @@ export default function Landing() {
                 alt="Tilapia Qurso"
                 className="h-full w-full object-cover group-hover:scale-105 transition duration-500"
               />
-              <span className="absolute top-3 left-3 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-lake-900 shadow-sm backdrop-blur">
-                🐟 Tilapia · ቁርሶ
-              </span>
-              <span className="absolute bottom-3 right-3 rounded-full bg-lime-500 px-2.5 py-0.5 text-xs font-bold text-lake-950 shadow">
