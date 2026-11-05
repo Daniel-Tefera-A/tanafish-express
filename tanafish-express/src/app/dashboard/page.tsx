@@ -144,8 +144,8 @@ export default function DashboardPage() {
       <main className="mx-auto max-w-5xl px-4 py-8">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h1 className="font-display text-3xl font-bold text-lake-900">Workspace</h1>
-            <p className="text-sm text-lake-500">
+            <h1 className="font-display text-3xl font-bold text-lake-950">Workspace</h1>
+            <p className="text-sm text-slate-500">
               Welcome back, {profile?.full_name} ({profile?.role})
             </p>
           </div>
@@ -250,16 +250,16 @@ export default function DashboardPage() {
               <Card className="p-6">
                 <h3 className="font-bold text-lake-900 mb-3">Active Listings</h3>
                 {sellerProducts.length === 0 ? (
-                  <p className="text-xs text-lake-400">No active catches listed right now.</p>
+                  <p className="text-xs text-slate-400">No active catches listed right now.</p>
                 ) : (
-                  <ul className="divide-y divide-lake-100 text-sm">
+                  <ul className="divide-y divide-slate-100 text-sm">
                     {sellerProducts.map((p) => (
                       <li key={p.id} className="py-3 flex justify-between items-center">
                         <div>
-                          <p className="font-semibold text-lake-900">{p.species}</p>
-                          <p className="text-xs text-lake-500">{p.quantity_kg} kg · {etb(p.price_per_kg)}/kg</p>
+                          <p className="font-semibold text-lake-950">{p.species}</p>
+                          <p className="text-xs text-slate-500">{p.quantity_kg} kg · {etb(p.price_per_kg)}/kg</p>
                         </div>
-                        <button onClick={() => deleteProduct(p.id)} className="text-lake-300 hover:text-red-500 transition">
+                        <button onClick={() => deleteProduct(p.id)} className="text-slate-400 hover:text-red-500 transition">
                           <Trash2 size={16} />
                         </button>
                       </li>
@@ -311,16 +311,16 @@ export default function DashboardPage() {
               <Card className="p-6">
                 <h3 className="font-bold text-lake-900 mb-3">Kitchen Menu</h3>
                 {hotelDishes.length === 0 ? (
-                  <p className="text-xs text-lake-400">No dishes on your kitchen menu yet.</p>
+                  <p className="text-xs text-slate-400">No dishes on your kitchen menu yet.</p>
                 ) : (
-                  <ul className="divide-y divide-lake-100 text-sm">
+                  <ul className="divide-y divide-slate-100 text-sm">
                     {hotelDishes.map((d) => (
                       <li key={d.id} className="py-3 flex justify-between items-center">
                         <div>
-                          <p className="font-semibold text-lake-900">{d.dish_name}</p>
-                          <p className="text-xs text-lake-500">Prep Fee: {etb(d.prep_fee)}</p>
+                          <p className="font-semibold text-lake-950">{d.dish_name}</p>
+                          <p className="text-xs text-slate-500">Prep Fee: {etb(d.prep_fee)}</p>
                         </div>
-                        <button onClick={() => deleteDish(d.id)} className="text-lake-300 hover:text-red-500 transition">
+                        <button onClick={() => deleteDish(d.id)} className="text-slate-400 hover:text-red-500 transition">
                           <Trash2 size={16} />
                         </button>
                       </li>
@@ -334,10 +334,10 @@ export default function DashboardPage() {
 
         {profile?.role === "CUSTOMER" && (
           <div className="space-y-4">
-            <h2 className="font-display text-xl font-bold text-lake-900">Your Recent Orders</h2>
+            <h2 className="font-display text-xl font-bold text-lake-950">Your Recent Orders</h2>
             {orders.length === 0 ? (
-              <Card className="p-12 text-center text-lake-400">
-                <Package className="mx-auto mb-2 text-lake-300" size={32} />
+              <Card className="p-12 text-center text-slate-400">
+                <Package className="mx-auto mb-2 text-slate-300" size={32} />
                 <p>You have no active orders with FishLink yet.</p>
                 <Button variant="outline" className="mt-4" onClick={() => router.push("/marketplace")}>
                   Browse Fresh Lake Catches
@@ -346,18 +346,18 @@ export default function DashboardPage() {
             ) : (
               orders.map((order) => (
                 <Card key={order.id} className="p-5 space-y-3">
-                  <div className="flex justify-between items-center border-b border-lake-100 pb-3">
+                  <div className="flex justify-between items-center border-b border-slate-100 pb-3">
                     <div>
-                      <span className="font-mono text-sm font-bold text-lake-900">Order #{order.id}</span>
-                      <p className="text-xs text-lake-400">{new Date(order.created_at).toLocaleDateString()}</p>
+                      <span className="font-mono text-sm font-bold text-lake-950">Order #{order.id}</span>
+                      <p className="text-xs text-slate-400">{new Date(order.created_at).toLocaleDateString()}</p>
                     </div>
                     <Badge tone="lime">{order.status}</Badge>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-lake-600">Delivery Address: {order.address}, {order.kebele}</span>
-                    <span className="font-bold text-lake-900">{etb(order.total)}</span>
+                    <span className="text-slate-600">Delivery Address: {order.address}, {order.kebele}</span>
+                    <span className="font-bold text-lake-950">{etb(order.total)}</span>
                   </div>
-                  <div className="rounded-xl bg-lake-50 p-3 flex justify-between items-center text-xs text-lake-700">
+                  <div className="rounded-xl bg-slate-50 p-3 flex justify-between items-center text-xs text-slate-700">
                     <span>Delivery Verification OTP (Give to Driver):</span>
                     <span className="font-mono font-bold text-base tracking-widest text-lake-950">{order.delivery_otp}</span>
                   </div>
