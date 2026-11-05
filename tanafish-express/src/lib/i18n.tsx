@@ -6,163 +6,142 @@ export type Lang = "en" | "am";
 const dict = {
   en: {
     brand: "FishLink",
-    tagline: "From Lake Tana to your table",
-    heroTitle: "Fresh from Lake Tana, delivered across Bahir Dar",
+    tagline: "Lake Tana's Freshest Catch, Delivered to Your Door",
+    heroBadge: "🌊 Direct from Lake Tana Landing Ports",
+    heroTitle: "Landed at Dawn on Lake Tana. On Your Table by Lunch.",
     heroSub:
-      "Order raw catch or hotel-cooked dishes. Paid upfront with Telebirr or CBE Birr, tracked all the way to your door.",
-    signInGoogle: "Sign in with Google",
-    browse: "Browse the catch",
-    v1: "Same-day lake catch",
-    v1d: "Landed at dawn, on your table by lunch.",
-    v2: "Cooked by local hotels",
-    v2d: "Asa Gulash, Lebleb, Tibz and Dulet from rated kitchens.",
-    v3: "Pay upfront, track live",
-    v3d: "Telebirr, CBE Birr or Chapa with OTP-verified delivery.",
+      "Order pristine fresh-water fish straight from Bahir Dar's local fishing cooperatives, or enjoy sizzling Asa Tibz and Asa Gulash prepared by top-rated lakeside kitchens.",
+    browse: "Explore Today's Catch",
+    orderNow: "Order Now",
+    workspace: "My Workspace",
+    signIn: "Sign In / Register",
+    signOut: "Sign Out",
+    liveTicker: "Fresh Landings: 140kg Tilapia (Qurso) just docked at Gende Wuha Port",
+    
+    // Value Props
+    v1: "Caught at First Light",
+    v1d: "Harvested sustainably by local fishermen at dawn and packed on lake ice within hours.",
+    v2: "Cooked by Renowned Kitchens",
+    v2d: "Crispy Asa Tibz, fragrant Asa Gulash, and tender Lebleb made to order by top Bahir Dar chefs.",
+    v3: "Honest, Transparent Delivery",
+    v3d: "Pay securely via Telebirr or CBE Birr. Hand over your secret 4-digit code only when your fish arrives.",
+
+    // Marketplace & Tabs
     rawTab: "Raw & Fresh Catch",
-    cookedTab: "Cooked Dishes",
-    weight: "Weight (kg)",
-    prep: "Preparation",
-    whole: "Whole",
-    gutted: "Gutted",
-    filleted: "Filleted",
-    addToCart: "Add to cart",
-    deliverTo: "Deliver to",
-    chooseKebele: "Choose kebele / sub-city",
-    dishStyle: "Dish style",
-    preparedBy: "Prepared by",
-    prepTime: "min",
-    cart: "Cart",
-    checkout: "Checkout",
-    total: "Total",
-    payNow: "Pay now",
-    payUpfront: "All orders are paid upfront.",
-    paymentMethod: "Payment method",
-    pinOnMap: "Pin your location on the map",
-    deliveryAddress: "Delivery address / landmark",
-    placed: "Placed",
-    kitchen: "Kitchen preparing",
-    enRoute: "Driver en route",
-    delivered: "Delivered",
-    deliveryOtp: "Delivery OTP — give this to your driver",
-    onboardingTitle: "Welcome! Tell us who you are",
-    individual: "Individual Customer",
-    hotel: "Hotel / Restaurant",
-    driver: "Delivery Partner",
-    continue: "Continue",
-    fullName: "Full name",
-    phone: "Phone number",
-    businessName: "Business name",
-    tin: "TIN / license number",
-    contact: "Contact person",
-    capacity: "Kitchen capacity (covers/hour)",
-    vehicle: "Vehicle type",
-    idUpload: "Upload ID (photo)",
-    hotelDash: "Hotel dashboard",
-    kds: "Kitchen display",
-    noOrders: "No active orders. New orders will ring here.",
-    accept: "Start cooking",
-    ready: "Mark ready",
-    menuMgmt: "Menu management",
-    prepFee: "Prep fee",
-    available: "Available",
-    outOfStock: "Out of stock",
-    bulkOrder: "Order fresh fish in bulk",
-    driverFeed: "Driver feed",
-    pickupToken: "Pickup token",
-    confirmPickup: "Confirm pickup",
-    confirmDelivery: "Confirm delivery",
-    enterOtp: "Enter customer OTP",
-    payout: "Payout",
-    soundOn: "Sound alerts on",
-    soundOff: "Enable sound alerts",
+    cookedTab: "Hotel-Cooked Specialties",
+    weight: "Select Weight",
+    prep: "Preparation Style",
+    whole: "Whole (Fresh & Intact)",
+    gutted: "Cleaned & Gutted",
+    filleted: "Boneless Fillet",
+    addToCart: "Add to Basket",
+    deliverTo: "Delivery Destination",
+    chooseKebele: "Select Kebele / Sub-city",
+    dishStyle: "Culinary Style",
+    preparedBy: "Crafted by",
+    prepTime: "mins",
+    cart: "Your Basket",
+    checkout: "Proceed to Checkout",
+    total: "Total Amount",
+    payNow: "Confirm & Pay",
+    payUpfront: "Guaranteed escrow: Paid securely upfront, verified at your doorstep.",
+    paymentMethod: "Payment Method",
+    pinOnMap: "Pin Delivery Landmark",
+    deliveryAddress: "Specific House / Landmark Description",
+
+    // Tracking
+    placed: "Order Received",
+    kitchen: "Preparing & Packing",
+    enRoute: "Rider on the Way",
+    delivered: "Safely Handed Over",
+    deliveryOtp: "Your 4-Digit Delivery Code (Give to Driver)",
+
+    // Local Co-op Quote
+    coopTitle: "Empowering Lake Tana's Fishing Families",
+    coopQuote: "FishLink bridges Bahir Dar's traditional boatmen directly with households and restaurants, ensuring fair earnings for fishermen and freshest fish for families.",
+    coopAuthor: "Lake Tana Fishermen Cooperative Union",
+
+    // UI Feedback
+    soundOn: "Alert Sound On",
+    soundOff: "Mute Sound",
   },
   am: {
     brand: "ፊሽሊንክ",
-    tagline: "ከጣና ሐይቅ እስከ ማዕድዎ",
-    heroTitle: "ትኩስ ከጣና ሐይቅ፣ በባሕር ዳር ሁሉ ይደርሳል",
+    tagline: "ከጣና ማዕበል... በቀጥታ ወደ ማዕድዎ!",
+    heroBadge: "🌊 ከጣና ሐይቅ ወደቦች በቀጥታ የቀረበ",
+    heroTitle: "ንጋት ላይ ከጣና የተጠመደ፣ ለምሳ ማዕድዎ ትኩስ ሆኖ የሚደርስ።",
     heroSub:
-      "ጥሬ ዓሣ ወይም በሆቴሎች የተዘጋጀ ምግብ ይዘዙ። በቴሌብር ወይም በሲቢኢ ብር ቅድሚያ ይክፈሉ፣ እስከ በርዎ ድረስ ይከታተሉ።",
-    signInGoogle: "በጉግል ይግቡ",
-    browse: "ዓሣዎችን ይመልከቱ",
-    v1: "የዕለቱ ትኩስ ዓሣ",
-    v1d: "ጠዋት ተይዞ ለምሳ ማዕድዎ ላይ።",
-    v2: "በአካባቢ ሆቴሎች የተሰራ",
-    v2d: "አሳ ጉላሽ፣ ለብለብ፣ ጥብስ እና ዱለት ከተመዘኑ ኩሽናዎች።",
-    v3: "ቅድሚያ ክፈሉ፣ በቀጥታ ይከታተሉ",
-    v3d: "ቴሌብር፣ ሲቢኢ ብር ወይም ቻፓ በኦቲፒ የተረጋገጠ ርክክብ።",
-    rawTab: "ጥሬ እና ትኩስ ዓሣ",
-    cookedTab: "የበሰሉ ምግቦች",
-    weight: "ክብደት (ኪ.ግ)",
-    prep: "አዘገጃጀት",
-    whole: "ሙሉ",
-    gutted: "ሆድ የወጣለት",
-    filleted: "የተፈለፈለ",
+      "የዕለቱን ምርጥ የጣና ዓሣ (ቁርሶ፣ አምባዛ) በቀጥታ ከአጥማጆች ማህበር ይዘዙ፤ ወይም በባሕር ዳር ምርጥ ሼፎች የተዘጋጀ አሳ ጥብስ፣ ጉላሽና ለብለብ በደቂቃዎች ውስጥ ቤትዎ ድረስ እንልካለን።",
+    browse: "የዕለቱን ዓሣ ይመልከቱ",
+    orderNow: "አሁን ይዘዙ",
+    workspace: "የሥራ ገበታ",
+    signIn: "ይግቡ / ይመዝገቡ",
+    signOut: "ውጣ",
+    liveTicker: "የዕለቱ ዜና፡ 140 ኪ.ግ ቁርሶ (ቲላፒያ) አሁን በገንደ-ውሃ ወደብ ደርሷል",
+
+    // Value Props
+    v1: "የንጋት ትኩስ ዓሣ",
+    v1d: "ንጋት ላይ ከጣና ሐይቅ ተመርጦ በበረዶ ተጠብቆ ለምሳዎ የሚደርስ ምርጥ የተፈጥሮ ዓሣ።",
+    v2: "በታወቁ ሆቴሎች የተዘጋጀ",
+    v2d: "በባሕር ዳር አንጋፋ ሼፎች በጥንቃቄ የተጠበሰ አሳ ጥብስ፣ ለስላሳ ጉላሽ፣ ለብለብና የጣና ዱለት።",
+    v3: "አስተማማኝ ርክክብ በኮድ",
+    v3d: "በቴሌብር ወይም በሲቢኢ ብር በሰላም ከፍለው፤ ዓሣው ደጃፍዎ ሲደርስ በሚስጥር ኮድ የሚረከቡበት።",
+
+    // Marketplace & Tabs
+    rawTab: "ትኩስ ያልበሰለ ዓሣ",
+    cookedTab: "የተዘጋጁ ጣፋጭ ምግቦች (ሆቴሎች)",
+    weight: "ክብደት ይምረጡ",
+    prep: "የአዘገጃጀት ሁኔታ",
+    whole: "ሙሉ (ያልተነካ)",
+    gutted: "ሆዱ የተጸዳና የታጠበ",
+    filleted: "የተፈለፈለ ሙልጭ ሙላት (ፊሌ)",
     addToCart: "ወደ ቅርጫት ጨምር",
-    deliverTo: "የሚደርስበት",
+    deliverTo: "የሚደርስበት ቀበሌ",
     chooseKebele: "ቀበሌ / ክፍለ ከተማ ይምረጡ",
     dishStyle: "የምግብ ዓይነት",
-    preparedBy: "የሚያዘጋጀው",
+    preparedBy: "የሚያዘጋጀው ሆቴል",
     prepTime: "ደቂቃ",
-    cart: "ቅርጫት",
-    checkout: "ክፍያ",
-    total: "ጠቅላላ",
-    payNow: "አሁን ይክፈሉ",
-    payUpfront: "ሁሉም ትዕዛዞች በቅድሚያ ይከፈላሉ።",
-    paymentMethod: "የክፍያ ዘዴ",
-    pinOnMap: "አድራሻዎን በካርታ ላይ ያመልክቱ",
-    deliveryAddress: "የማድረሻ አድራሻ / ምልክት",
-    placed: "ተመዝግቧል",
-    kitchen: "ኩሽና እያዘጋጀ ነው",
-    enRoute: "ሹፌር በመንገድ ላይ",
-    delivered: "ደርሷል",
-    deliveryOtp: "የርክክብ ኦቲፒ — ለሹፌሩ ይስጡ",
-    onboardingTitle: "እንኳን ደህና መጡ! ማን እንደሆኑ ይንገሩን",
-    individual: "ግለሰብ ደንበኛ",
-    hotel: "ሆቴል / ምግብ ቤት",
-    driver: "አስረካቢ አጋር",
-    continue: "ቀጥል",
-    fullName: "ሙሉ ስም",
-    phone: "ስልክ ቁጥር",
-    businessName: "የንግድ ስም",
-    tin: "የቲን / ፈቃድ ቁጥር",
-    contact: "ተጠሪ ሰው",
-    capacity: "የኩሽና አቅም (ሰው/ሰዓት)",
-    vehicle: "የተሽከርካሪ ዓይነት",
-    idUpload: "መታወቂያ ይጫኑ (ፎቶ)",
-    hotelDash: "የሆቴል ዳሽቦርድ",
-    kds: "የኩሽና ማሳያ",
-    noOrders: "ንቁ ትዕዛዝ የለም። አዲስ ትዕዛዝ እዚህ ይጮኻል።",
-    accept: "ማብሰል ጀምር",
-    ready: "ዝግጁ ነው",
-    menuMgmt: "የምግብ ዝርዝር አስተዳደር",
-    prepFee: "የዝግጅት ክፍያ",
-    available: "ይገኛል",
-    outOfStock: "አልቋል",
-    bulkOrder: "ትኩስ ዓሣ በጅምላ ይዘዙ",
-    driverFeed: "የሹፌር ዝርዝር",
-    pickupToken: "የመረከቢያ ቶከን",
-    confirmPickup: "መረከብን አረጋግጥ",
-    confirmDelivery: "ርክክብን አረጋግጥ",
-    enterOtp: "የደንበኛውን ኦቲፒ ያስገቡ",
-    payout: "ክፍያ",
+    cart: "የመረጡት ቅርጫት",
+    checkout: "ወደ ክፍያ ሂድ",
+    total: "ጠቅላላ ዋጋ",
+    payNow: "ክፍያ ፈጽም",
+    payUpfront: "ደህንነቱ የተጠበቀ ክፍያ: በቅድሚያ ተከፍሎ እጅዎ ሲደርስ በኮድ የሚረጋገጥ።",
+    paymentMethod: "የክፍያ አማራጭ",
+    pinOnMap: "አድራሻዎን በካርታ ያመልክቱ",
+    deliveryAddress: "ልዩ የመኖሪያ ቤት ወይም የመንገድ ምልክት",
+
+    // Tracking
+    placed: "ትዕዛዙ ተመዝግቧል",
+    kitchen: "እየተዘጋጀ / እየታሸገ ነው",
+    enRoute: "አጓጓዡ በመንገድ ላይ ነው",
+    delivered: "በሰላም ደርሷል",
+    deliveryOtp: "የ4-አሃዝ ሚስጥር ቁጥርዎ (ለአጓጓዡ የሚሰጥ)",
+
+    // Local Co-op Quote
+    coopTitle: "የጣና አጥማጆችን በቀጥታ የሚያገናኝ",
+    coopQuote: "ፊሽሊንክ የባሕር ዳር ዓሣ አጥማጆችን ያለ ደላላ በቀጥታ ከማዕድዎ ጋር በማገናኘት ለአጥማጆች ተገቢውን ዋጋ፣ ለተጠቃሚው ደግሞ ፍጹም ትኩስ ዓሣ ያቀርባል።",
+    coopAuthor: "የጣና ሐይቅ ዓሣ አጥማጆች ህብረት ሥራ ማህበር",
+
+    // UI Feedback
     soundOn: "የድምፅ ማስጠንቀቂያ በርቷል",
-    soundOff: "የድምፅ ማስጠንቀቂያ አብራ",
+    soundOff: "ድምፅ አጥፋ",
   },
 } as const;
 
 export type Key = keyof (typeof dict)["en"];
 
 const Ctx = createContext<{ lang: Lang; setLang: (l: Lang) => void; t: (k: Key) => string }>({
-  lang: "en",
+  lang: "am",
   setLang: () => {},
   t: (k) => k,
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
+  const [lang, setLangState] = useState<Lang>("am");
+
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("tf_lang") as Lang | null;
+      const saved = localStorage.getItem("fl_lang") as Lang | null;
       if (saved === "en" || saved === "am") setLangState(saved);
     } catch {}
   }, []);
@@ -170,12 +149,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const setLang = (l: Lang) => {
     setLangState(l);
     try {
-      localStorage.setItem("tf_lang", l);
+      localStorage.setItem("fl_lang", l);
     } catch {}
-    document.documentElement.lang = l;
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = l;
+    }
   };
 
-  const t = (k: Key) => dict[lang][k] ?? dict.en[k];
+  const t = (k: Key) => dict[lang][k] ?? dict.en[k] ?? k;
   return <Ctx.Provider value={{ lang, setLang, t }}>{children}</Ctx.Provider>;
 }
 
