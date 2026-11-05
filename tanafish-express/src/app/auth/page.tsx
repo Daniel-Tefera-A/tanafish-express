@@ -144,20 +144,20 @@ export default function AuthPage() {
   };
 
   return (
-    <main className="min-h-screen bg-lake-50/50 py-10 px-4 flex flex-col justify-center items-center">
+    <main className="min-h-screen bg-slate-50 py-10 px-4 flex flex-col justify-center items-center">
       <Link href="/" className="mb-6 flex items-center gap-2 font-display text-2xl font-bold text-lake-900">
-        <span className="grid h-10 w-10 place-items-center rounded-xl bg-lake-800 text-lime-400">
+        <span className="grid h-10 w-10 place-items-center rounded-xl bg-lake-900 text-lime-400">
           <Fish size={22} />
         </span>
         FishLink
       </Link>
 
-      <Card className="w-full max-w-lg p-6 sm:p-8 bg-white shadow-xl border-lake-100">
-        <div className="flex border-b border-lake-100 mb-6">
+      <Card className="w-full max-w-lg p-6 sm:p-8 bg-white shadow-md border-slate-200">
+        <div className="flex border-b border-slate-200 mb-6">
           <button
             onClick={() => { setMode("signin"); setErrorMsg(""); }}
             className={`flex-1 pb-3 text-center text-sm font-semibold transition ${
-              mode === "signin" ? "border-b-2 border-lake-800 text-lake-900" : "text-lake-400"
+              mode === "signin" ? "border-b-2 border-lake-900 text-lake-950 font-bold" : "text-slate-400"
             }`}
           >
             Sign In
@@ -165,7 +165,7 @@ export default function AuthPage() {
           <button
             onClick={() => { setMode("register"); setErrorMsg(""); }}
             className={`flex-1 pb-3 text-center text-sm font-semibold transition ${
-              mode === "register" ? "border-b-2 border-lake-800 text-lake-900" : "text-lake-400"
+              mode === "register" ? "border-b-2 border-lake-900 text-lake-950 font-bold" : "text-slate-400"
             }`}
           >
             Register Account
@@ -209,14 +209,14 @@ export default function AuthPage() {
           <form onSubmit={handleRegister} className="space-y-4">
             <div>
               <Label>Account Type</Label>
-              <div className="grid grid-cols-3 gap-1.5 p-1 bg-lake-100/50 rounded-xl">
+              <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 rounded-xl">
                 {(["CUSTOMER", "HOTEL", "SELLER"] as RoleOption[]).map((r) => (
                   <button
                     key={r}
                     type="button"
                     onClick={() => setRole(r)}
                     className={`py-2 text-xs font-bold rounded-lg transition ${
-                      role === r ? "bg-white text-lake-900 shadow-sm" : "text-lake-600 hover:text-lake-900"
+                      role === r ? "bg-white text-lake-950 shadow-sm" : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {r === "CUSTOMER" ? "Customer" : r === "HOTEL" ? "Hotel" : "Fish Seller"}
@@ -327,8 +327,8 @@ export default function AuthPage() {
                 </div>
                 <div>
                   <Label>Commercial Verification Document (PDF/JPG)</Label>
-                  <label className="flex h-20 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-lake-200 text-xs text-lake-500 hover:bg-lake-50">
-                    <Upload size={18} className="mb-1 text-lake-400" />
+                  <label className="flex h-20 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 text-xs text-slate-500 hover:bg-slate-50">
+                    <Upload size={18} className="mb-1 text-slate-400" />
                     <span>{docFile ? docFile.name : "Upload License / Cooperative ID"}</span>
                     <input
                       type="file"
@@ -349,15 +349,15 @@ export default function AuthPage() {
         )}
 
         <div className="relative my-6 text-center">
-          <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-lake-100" /></div>
-          <span className="relative bg-white px-3 text-xs uppercase tracking-wider text-lake-400 font-semibold">Or</span>
+          <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-slate-200" /></div>
+          <span className="relative bg-white px-3 text-xs uppercase tracking-wider text-slate-400 font-semibold">Or</span>
         </div>
 
         <Button
           type="button"
           variant="outline"
           onClick={handleGoogleSignIn}
-          className="w-full flex items-center justify-center gap-2 border-lake-200"
+          className="w-full flex items-center justify-center gap-2 border-slate-200"
         >
           <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden>
             <path fill="#4285F4" d="M45 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.7-2 5-4.4 6.5v5.4h7.1c4.1-3.8 6.5-9.4 6.5-15.9z" />
