@@ -213,3 +213,10 @@ export default function Landing() {
                 alt="Tilapia Qurso"
                 className="h-full w-full object-cover group-hover:scale-105 transition duration-500"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
