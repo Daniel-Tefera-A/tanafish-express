@@ -7,27 +7,57 @@
 }
 
 body {
-  @apply bg-lake-50/40 text-lake-900 antialiased;
+  @apply bg-[#f6fafc] text-lake-900 antialiased;
   font-family: var(--font-sans), "Noto Sans Ethiopic", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 html[lang="am"] body {
-  line-height: 1.7;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
 }
 
+/* Atmospheric Lake Tana Hero Background */
 .hero-bg {
   background:
-    radial-gradient(1200px 500px at 80% -10%, rgba(132, 204, 22, 0.28), transparent 60%),
-    radial-gradient(900px 500px at 0% 100%, rgba(74, 148, 203, 0.35), transparent 60%),
-    linear-gradient(160deg, #071830 0%, #0b2540 45%, #184a75 100%);
+    radial-gradient(1000px 600px at 85% 0%, rgba(132, 204, 22, 0.22), transparent 50%),
+    radial-gradient(800px 500px at 10% 90%, rgba(56, 189, 248, 0.2), transparent 60%),
+    linear-gradient(165deg, #05162a 0%, #0a2544 40%, #103c68 100%);
 }
 
-.wave::after {
+/* Water Ripple Accent Overlay */
+.lake-water-texture {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Soft Edge Wave Separator */
+.wave-divider {
+  position: relative;
+}
+.wave-divider::after {
   content: "";
   position: absolute;
   inset: auto 0 -1px 0;
-  height: 48px;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 48' preserveAspectRatio='none'><path d='M0 24 C240 48 480 0 720 24 C960 48 1200 0 1440 24 L1440 48 L0 48 Z' fill='%23f4f9fc'/></svg>") center / 100% 100% no-repeat;
+  height: 40px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'><path d='M0,20 C320,40 480,0 720,20 C960,40 1120,0 1440,20 L1440,40 L0,40 Z' fill='%23f6fafc'/></svg>") center / 100% 100% no-repeat;
+}
+
+/* Glass Card Polish */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 238, 247, 0.85);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
