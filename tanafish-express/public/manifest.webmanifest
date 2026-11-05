@@ -1,0 +1,9 @@
+{
+  "name": "TanaFish Express",
+  "short_name": "TanaFish",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f9fc",
+  "theme_color": "#0b2540",
+  "icons": []
+}

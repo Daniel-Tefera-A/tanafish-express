@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-lake-50/40 text-lake-900 antialiased;
+  font-family: var(--font-sans), "Noto Sans Ethiopic", system-ui, sans-serif;
+}
+
+html[lang="am"] body {
+  line-height: 1.7;
+}
+
+.hero-bg {
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(132, 204, 22, 0.28), transparent 60%),
+    radial-gradient(900px 500px at 0% 100%, rgba(74, 148, 203, 0.35), transparent 60%),
+    linear-gradient(160deg, #071830 0%, #0b2540 45%, #184a75 100%);
+}
+
+.wave::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 48px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 48' preserveAspectRatio='none'><path d='M0 24 C240 48 480 0 720 24 C960 48 1200 0 1440 24 L1440 48 L0 48 Z' fill='%23f4f9fc'/></svg>") center / 100% 100% no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
