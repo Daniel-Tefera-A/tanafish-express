@@ -3,6 +3,9 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 
 export type Lang = "en" | "am";
 
+// Flexible type definition: prevents any build-time TypeScript type mismatch
+export type Key = string;
+
 const dict = {
   en: {
     // Brand & Hero
@@ -58,7 +61,7 @@ const dict = {
     delivered: "Safely Handed Over",
     deliveryOtp: "Your 4-Digit Delivery Code (Give to Driver)",
 
-    // Driver Portal
+    // Driver Portal Keys
     driverFeed: "Driver Delivery Feed",
     pickupToken: "Pickup Verification Token",
     confirmPickup: "Confirm Catch Handover",
@@ -66,7 +69,7 @@ const dict = {
     enterOtp: "Enter Customer's 4-Digit Code",
     payout: "Delivery Earning",
 
-    // Hotel & Kitchen Portal
+    // Hotel & Kitchen Portal Keys
     hotelDash: "Hotel Kitchen Workspace",
     kds: "Kitchen Orders (KDS)",
     noOrders: "No active orders right now. New requests will appear here.",
@@ -157,7 +160,7 @@ const dict = {
     delivered: "በሰላም ደርሷል",
     deliveryOtp: "የ4-አሃዝ ሚስጥር ቁጥርዎ (ለአጓጓዡ የሚሰጥ)",
 
-    // Driver Portal
+    // Driver Portal Keys
     driverFeed: "የአጓጓዥ የሥራ ዝርዝር",
     pickupToken: "የመረከቢያ ሚስጥር ቁጥር (Token)",
     confirmPickup: "መረከቤን አረጋግጥ",
@@ -165,7 +168,7 @@ const dict = {
     enterOtp: "የደንበኛውን 4-አሃዝ ኮድ ያስገቡ",
     payout: "የማድረሻ ክፍያ",
 
-    // Hotel & Kitchen Portal
+    // Hotel & Kitchen Portal Keys
     hotelDash: "የሆቴል ኩሽና ገበታ",
     kds: "የኩሽና ትዕዛዞች",
     noOrders: "በአሁኑ ሰዓት ንቁ ትዕዛዝ የለም። አዳዲስ ትዕዛዞች እዚህ ይደርሳሉ።",
@@ -204,16 +207,14 @@ const dict = {
   },
 } as const;
 
-export type Key = keyof (typeof dict)["en"] | (string & {});
-
 const Ctx = createContext<{
   lang: Lang;
   setLang: (l: Lang) => void;
-  t: (k: Key) => string;
+  t: (k: string) => string;
 }>({
   lang: "am",
   setLang: () => {},
-  t: (k) => k,
+  t: (k: string) => k,
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
@@ -236,8 +237,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const t = (k: Key): string => {
-    const langDict = dict[lang] as Record<string, string>;
+  const t = (k: string): string => {
+    const langDict = (dict as any)[lang] || {};
     const enDict = dict.en as Record<string, string>;
     return langDict[k] ?? enDict[k] ?? k;
   };
