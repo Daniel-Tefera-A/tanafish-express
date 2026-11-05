@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Fish, ShoppingBasket, LayoutDashboard, LogIn, LogOut, Store } from "lucide-react";
+import { Fish, ShoppingBasket, LayoutDashboard, LogIn, LogOut, Store, Sparkles } from "lucide-react";
 import { LangToggle } from "./lang-toggle";
 import { useI18n } from "@/lib/i18n";
 import { supabase } from "@/lib/supabase";
@@ -32,48 +32,65 @@ export function TopNav({ right }: { right?: React.ReactNode }) {
   };
 
   return (
-    <header className="sticky top-0 z-30 border-b border-lake-100 bg-white/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2 font-display text-lg font-bold text-lake-900">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-lake-800 text-lime-400 shadow-sm">
-            <Fish size={20} />
+    <header className="sticky top-0 z-40 border-b border-lake-100/70 bg-white/85 backdrop-blur-xl transition-all">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+        {/* Brand identity with natural ripple glow */}
+        <Link href="/" className="group flex items-center gap-2.5 transition">
+          <span className="relative grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-lake-800 to-lake-950 text-lime-400 shadow-md transition-transform group-hover:scale-105">
+            <Fish size={22} className="transition-transform group-hover:rotate-6" />
+            <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-lime-400 ring-2 ring-white" />
           </span>
-          {t("brand")}
+          <div className="flex flex-col">
+            <span className="font-display text-xl font-bold tracking-tight text-lake-950 group-hover:text-lake-700">
+              {t("brand")}
+            </span>
+            <span className="hidden text-[10px] font-medium tracking-wide text-lake-500 sm:block">
+              Bahir Dar · Lake Tana
+            </span>
+          </div>
         </Link>
 
-        {/* Center / Navigation Links */}
-        <nav className="hidden sm:flex items-center gap-5 text-sm font-semibold text-lake-700">
-          <Link href="/marketplace" className="hover:text-lake-950 transition flex items-center gap-1.5">
-            <Store size={16} /> {t("browse")}
+        {/* Center menu */}
+        <nav className="flex items-center gap-2 sm:gap-4 text-sm font-semibold">
+          <Link
+            href="/marketplace"
+            className="flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-lake-700 hover:bg-lake-50 hover:text-lake-950 transition"
+          >
+            <Store size={17} className="text-lake-500" />
+            <span>{t("browse")}</span>
           </Link>
+
           {user && (
-            <Link href="/dashboard" className="hover:text-lake-950 transition flex items-center gap-1.5">
-              <LayoutDashboard size={16} /> Workspace
+            <Link
+              href="/dashboard"
+              className="flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-lake-700 hover:bg-lake-50 hover:text-lake-950 transition"
+            >
+              <LayoutDashboard size={17} className="text-lime-600" />
+              <span>{t("workspace")}</span>
             </Link>
           )}
         </nav>
 
-        {/* Right Actions */}
-        <div className="flex items-center gap-2">
+        {/* Right side tools */}
+        <div className="flex items-center gap-2.5">
           {right}
 
           {user ? (
             <button
               onClick={handleSignOut}
-              className="inline-flex h-9 items-center gap-1 rounded-full px-3 text-xs font-semibold text-lake-600 hover:bg-lake-100 transition"
+              className="inline-flex h-9 items-center gap-1.5 rounded-full border border-lake-200/80 bg-white px-3 text-xs font-semibold text-lake-600 shadow-sm hover:bg-lake-50 hover:text-red-600 transition"
               title="Sign Out"
             >
-              <LogOut size={15} />
-              <span className="hidden md:inline">Sign Out</span>
+              <LogOut size={14} />
+              <span className="hidden md:inline">{t("signOut")}</span>
             </button>
           ) : (
             <Link
               href="/auth"
-              className="inline-flex h-9 items-center gap-1.5 rounded-full bg-lake-800 text-white px-3.5 text-xs font-semibold hover:bg-lake-700 transition shadow-sm"
+              className="inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-lake-900 to-lake-800 px-4 text-xs font-bold text-white shadow-md hover:from-lake-800 hover:to-lake-700 transition"
             >
-              <LogIn size={15} />
-              <span>Sign In</span>
+              <LogIn size={14} className="text-lime-400" />
+              <span>{t("signIn")}</span>
             </Link>
           )}
 
@@ -93,7 +110,7 @@ export function CartLink({ count }: { count: number }) {
     >
       <ShoppingBasket size={18} />
       {count > 0 && (
-        <span className="absolute -right-1 -top-1 grid h-4 min-w-4 place-items-center rounded-full bg-lime-500 px-1 text-[10px] font-bold text-lake-950">
+        <span className="absolute -right-1 -top-1 grid h-4 min-w-4 place-items-center rounded-full bg-lime-500 px-1 text-[10px] font-bold text-lake-950 shadow-sm">
           {count}
         </span>
       )}
