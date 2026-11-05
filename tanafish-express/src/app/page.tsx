@@ -213,10 +213,141 @@ export default function Landing() {
                 alt="Tilapia Qurso"
                 className="h-full w-full object-cover group-hover:scale-105 transition duration-500"
               />
+              <span className="absolute top-3 left-3 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-lake-900 shadow-sm backdrop-blur">
+                {"🐟 Tilapia · ቁርሶ"}
+              </span>
+              <span className="absolute bottom-3 right-3 rounded-full bg-lime-500 px-2.5 py-0.5 text-xs font-bold text-lake-950 shadow">
+                Fresh Daily
+              </span>
+            </div>
+            <div className="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 className="font-display text-lg font-bold text-lake-900">Lake Tana Tilapia (Qurso)</h4>
+                <p className="mt-1 text-xs text-lake-500 leading-relaxed">
+                  Landed at Gende Wuha port. Sweet, white-meat freshwater catch available whole, gutted, or filleted.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-lake-100 flex items-center justify-between">
+                <span className="text-xs text-lake-500 flex items-center gap-1"><MapPin size={13} /> Marine Port</span>
+                <Link href="/marketplace">
+                  <Button size="sm" className="bg-lake-900 text-white hover:bg-lake-800">
+                    Order Raw Catch
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: Asa Tibz */}
+          <div className="group overflow-hidden rounded-3xl border border-lake-100 bg-white shadow-md hover:shadow-xl transition flex flex-col">
+            <div className="relative h-48 bg-lake-200 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=70&auto=format"
+                alt="Fried Asa Tibz"
+                className="h-full w-full object-cover group-hover:scale-105 transition duration-500"
+              />
+              <span className="absolute top-3 left-3 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-lake-900 shadow-sm backdrop-blur">
+                {"🔥 Asa Tibz · አሳ ጥብስ"}
+              </span>
+              <span className="absolute bottom-3 right-3 rounded-full bg-amber-400 px-2.5 py-0.5 text-xs font-bold text-lake-950 shadow">
+                Hotel Cooked
+              </span>
+            </div>
+            <div className="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 className="font-display text-lg font-bold text-lake-900">Crispy Fried Asa Tibz</h4>
+                <p className="mt-1 text-xs text-lake-500 leading-relaxed">
+                  Deep-fried to golden perfection with rosemary and traditional spiced mitmita dipping sauce.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-lake-100 flex items-center justify-between">
+                <span className="text-xs text-lake-500 flex items-center gap-1"><Clock size={13} /> 25 mins</span>
+                <Link href="/marketplace">
+                  <Button size="sm" className="bg-lake-900 text-white hover:bg-lake-800">
+                    Order Prepared
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Asa Gulash */}
+          <div className="group overflow-hidden rounded-3xl border border-lake-100 bg-white shadow-md hover:shadow-xl transition flex flex-col">
+            <div className="relative h-48 bg-lake-200 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1498654200943-1088dd4208ce?w=700&q=70&auto=format"
+                alt="Asa Gulash"
+                className="h-full w-full object-cover group-hover:scale-105 transition duration-500"
+              />
+              <span className="absolute top-3 left-3 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-lake-900 shadow-sm backdrop-blur">
+                {"🍲 Asa Gulash · አሳ ጉላሽ"}
+              </span>
+              <span className="absolute bottom-3 right-3 rounded-full bg-lime-500 px-2.5 py-0.5 text-xs font-bold text-lake-950 shadow">
+                Chef Specialty
+              </span>
+            </div>
+            <div className="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <h4 className="font-display text-lg font-bold text-lake-900">Spiced Fish Gulash Stew</h4>
+                <p className="mt-1 text-xs text-lake-500 leading-relaxed">
+                  Tender fish cubes simmered in fresh tomato gravy with garlic, shallots, and green chilies.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-lake-100 flex items-center justify-between">
+                <span className="text-xs text-lake-500 flex items-center gap-1"><Clock size={13} /> 30 mins</span>
+                <Link href="/marketplace">
+                  <Button size="sm" className="bg-lake-900 text-white hover:bg-lake-800">
+                    Order Prepared
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Community Co-op Spotlight */}
+      <section className="mx-auto max-w-6xl px-4 py-10">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-lake-900 via-lake-800 to-lake-900 p-8 sm:p-12 text-white shadow-xl">
+          <div className="relative z-10 max-w-2xl">
+            <span className="inline-flex items-center gap-2 rounded-full bg-lime-400/20 px-3 py-1 text-xs font-bold text-lime-400 mb-4">
+              <HeartHandshake size={15} />
+              <span>{t("coopTitle")}</span>
+            </span>
+
+            <blockquote className="font-display text-xl sm:text-2xl font-medium leading-relaxed text-lake-50">
+              {`“${t("coopQuote")}”`}
+            </blockquote>
+
+            <p className="mt-5 text-sm font-semibold text-lime-400">
+              — {t("coopAuthor")}
+            </p>
+          </div>
+
+          <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-x-10 translate-y-10">
+            <Fish size={320} />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-lake-100 bg-white py-12 mt-12">
+        <div className="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-lake-500">
+          <div className="flex items-center gap-2 font-display text-base font-bold text-lake-900">
+            <span className="grid h-7 w-7 place-items-center rounded-lg bg-lake-800 text-lime-400">
+              <Fish size={15} />
+            </span>
+            <span>FishLink Bahir Dar</span>
+          </div>
+
+          <p>© {new Date().getFullYear()} FishLink. Lake Tana Fisheries Marketplace.</p>
+
+          <div className="flex gap-4">
+            <Link href="/marketplace" className="hover:text-lake-900 transition">{t("browse")}</Link>
+            <Link href="/auth" className="hover:text-lake-900 transition">{t("signIn")}</Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
