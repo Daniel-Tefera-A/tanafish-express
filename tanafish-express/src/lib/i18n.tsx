@@ -5,7 +5,7 @@ export type Lang = "en" | "am";
 
 const dict = {
   en: {
-    brand: "TanaFish Express",
+    brand: "FishLink",
     tagline: "From Lake Tana to your table",
     heroTitle: "Fresh from Lake Tana, delivered across Bahir Dar",
     heroSub:
@@ -77,7 +77,7 @@ const dict = {
     soundOff: "Enable sound alerts",
   },
   am: {
-    brand: "ጣና ፊሽ ኤክስፕረስ",
+    brand: "ፊሽሊንክ",
     tagline: "ከጣና ሐይቅ እስከ ማዕድዎ",
     heroTitle: "ትኩስ ከጣና ሐይቅ፣ በባሕር ዳር ሁሉ ይደርሳል",
     heroSub:
@@ -166,6 +166,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       if (saved === "en" || saved === "am") setLangState(saved);
     } catch {}
   }, []);
+
   const setLang = (l: Lang) => {
     setLangState(l);
     try {
@@ -173,6 +174,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     } catch {}
     document.documentElement.lang = l;
   };
+
   const t = (k: Key) => dict[lang][k] ?? dict.en[k];
   return <Ctx.Provider value={{ lang, setLang, t }}>{children}</Ctx.Provider>;
 }
