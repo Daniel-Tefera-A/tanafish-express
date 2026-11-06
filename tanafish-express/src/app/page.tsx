@@ -2,166 +2,193 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { 
-  Waves, 
-  ChefHat, 
-  ShieldCheck, 
   ArrowRight, 
-  User, 
-  ShoppingBag, 
-  Anchor,
-  CheckCircle2
+  PlayCircle, 
+  CheckCircle, 
+  Anchor, 
+  Store, 
+  PlusCircle, 
+  Clock, 
+  ShieldCheck, 
+  MapPin, 
+  ChevronRight 
 } from "lucide-react";
 import { TopNav } from "@/components/nav";
-import { Button } from "@/components/ui";
-import { useI18n } from "@/lib/i18n";
-import { supabase } from "@/lib/supabase";
+import { fetchAllItems } from "@/lib/store";
+import { ProductItem } from "@/lib/types";
 
-export default function LandingPage() {
-  const { t } = useI18n();
-  const [user, setUser] = useState<any>(null);
+export default function HomePage() {
+  const [items, setItems] = useState<ProductItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
+    fetchAllItems().then((res) => {
+      setItems(res.slice(0, 3));
+      setLoading(false);
     });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-
-    return () => subscription.unsubscribe();
   }, []);
 
-  const values = [
-    { 
-      icon: Waves, 
-      title: t("v1"), 
-      body: t("v1d"), 
-      tag: "Fresh Harvest"
-    },
-    { 
-      icon: ChefHat, 
-      title: t("v2"), 
-      body: t("v2d"), 
-      tag: "Top Bahir Dar Chefs"
-    },
-    { 
-      icon: ShieldCheck, 
-      title: t("v3"), 
-      body: t("v3d"), 
-      tag: "Escrow Code Handover"
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-white text-slate-900 font-sans">
       <TopNav />
 
-      {/* Hero Section */}
-      <section className="bg-lake-900 text-white py-16 sm:py-24 px-4 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-lime-400/40 bg-lake-800/80 px-3.5 py-1 text-xs font-semibold text-lime-300">
-            <Anchor size={14} className="text-lime-400" />
-            <span>{t("heroBadge")}</span>
-          </div>
+      {/* Hero Section styled after AgriBridge with Lake Tana boat background */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-emerald-50/40 via-white to-slate-50 border-b border-slate-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-8 py-16 sm:py-24 lg:py-28 grid lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Hero Content */}
+          <div className="lg:col-span-7 z-10 space-y-6">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/80 px-3.5 py-1.5 rounded-full">
+              <Anchor size={14} className="text-emerald-700" />
+              <span>Digital Lake Tana Fish Market & Logistics</span>
+            </div>
 
-          <h1 className="mt-6 font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl text-white">
-            {t("heroTitle")}
-          </h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
+              Connecting Lake Tana Catch to Verified Demand
+            </h1>
 
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            {t("heroSub")}
-          </p>
+            <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
+              FishLink helps coordinate fresh morning catch, verified lakeside restaurant kitchens, and direct Bahir Dar doorstep delivery — from landing harbor to your table.
+            </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3.5">
-            <Link href="/marketplace">
-              <Button
-                size="lg"
-                className="h-12 bg-lime-500 px-6 text-lake-950 hover:bg-lime-400 font-bold flex items-center gap-2 transition"
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Link
+                href="/marketplace"
+                className="inline-flex items-center gap-2.5 rounded-xl bg-emerald-700 px-6 py-3.5 text-base font-bold text-white shadow-md hover:bg-emerald-800 transition transform hover:-translate-y-0.5"
               >
-                <ShoppingBag size={18} />
-                <span>{t("browse")}</span>
-                <ArrowRight size={16} />
-              </Button>
-            </Link>
+                <span>Get Started</span>
+                <ArrowRight size={18} />
+              </Link>
 
-            {user ? (
-              <Link href="/dashboard">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="h-12 border-slate-700 bg-lake-800/60 px-6 font-semibold text-white hover:bg-lake-800 hover:text-white flex items-center gap-2"
-                >
-                  <User size={18} />
-                  <span>{t("workspace")}</span>
-                </Button>
+              <Link
+                href="/dashboard"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-base font-bold text-slate-700 hover:bg-slate-50 transition"
+              >
+                <PlusCircle size={18} className="text-emerald-700" />
+                <span>Upload Produces & Dishes</span>
               </Link>
-            ) : (
-              <Link href="/auth">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="h-12 border-slate-700 bg-lake-800/60 px-6 font-semibold text-white hover:bg-lake-800 hover:text-white flex items-center gap-2"
-                >
-                  <User size={18} />
-                  <span>{t("signIn")}</span>
-                </Button>
-              </Link>
-            )}
+            </div>
+
+            {/* Value Checkmarks */}
+            <div className="pt-6 border-t border-slate-200/80 flex flex-wrap gap-6 text-xs sm:text-sm font-semibold text-slate-600">
+              <div className="flex items-center gap-2">
+                <CheckCircle size={16} className="text-emerald-600" />
+                <span>Zero Middlemen Fees</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle size={16} className="text-emerald-600" />
+                <span>Landed at Dawn, Delivered by Noon</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle size={16} className="text-emerald-600" />
+                <span>Doorstep OTP Verification</span>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-4 border-t border-slate-800 pt-8 sm:grid-cols-4">
-            <div>
-              <p className="font-display text-xl font-bold text-lime-400">100%</p>
-              <p className="text-xs text-slate-400">Lake Tana Fresh Catch</p>
-            </div>
-            <div>
-              <p className="font-display text-xl font-bold text-white">4 Landing Ports</p>
-              <p className="text-xs text-slate-400">Gende Wuha, Mangie, Shimbit, Gorgora</p>
-            </div>
-            <div>
-              <p className="font-display text-xl font-bold text-lime-400">Direct</p>
-              <p className="text-xs text-slate-400">Fair Fisherman Cooperative Pricing</p>
-            </div>
-            <div>
-              <p className="font-display text-xl font-bold text-white">Verified</p>
-              <p className="text-xs text-slate-400">Doorstep OTP Handover</p>
+          {/* Right Hero Visual with authentic Lake Tana boat scenery */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative mx-auto max-w-lg lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
+              <img
+                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1000&q=80"
+                alt="Lake Tana Fishing Boat and Green Shoreline"
+                className="h-[380px] sm:h-[460px] w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                  Gende Wuha & Shimbit Ports
+                </span>
+                <h3 className="text-xl font-bold mt-1">Direct from Lake Tana Fishermen</h3>
+                <p className="text-xs text-slate-200 mt-1">
+                  Tilapia (Qurso), Catfish (Ambaza), and hot lakeside dishes delivered daily.
+                </p>
+              </div>
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* Value Pillars */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16 w-full">
-        <div className="grid gap-6 md:grid-cols-3">
-          {values.map(({ icon: Icon, title, body, tag }) => (
-            <div
-              key={title}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-lake-900 text-lime-400">
-                    <Icon size={20} />
-                  </span>
-                  <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-700">
-                    {tag}
-                  </span>
+      {/* Fresh Available Items Preview */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-8 py-16">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+              Live Listings
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 mt-1">
+              Fresh Today on FishLink
+            </h2>
+          </div>
+          <Link
+            href="/marketplace"
+            className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 hover:text-emerald-800 transition"
+          >
+            <span>View All Catches & Menus</span>
+            <ChevronRight size={18} />
+          </Link>
+        </div>
+
+        {loading ? (
+          <div className="py-12 text-center text-slate-400">Loading today's landings...</div>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map((item) => (
+              <div
+                key={item.id}
+                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition"
+              >
+                <div>
+                  <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                    <img
+                      src={item.image_url}
+                      alt={item.title}
+                      className="h-full w-full object-cover group-hover:scale-105 transition duration-300"
+                    />
+                    <span
+                      className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                        item.item_type === "FISH"
+                          ? "bg-emerald-700 text-white"
+                          : "bg-amber-600 text-white"
+                      }`}
+                    >
+                      {item.item_type === "FISH" ? "Raw Catch" : "Cooked Food"}
+                    </span>
+                  </div>
+
+                  <div className="p-5">
+                    <h3 className="font-bold text-lg text-slate-900 group-hover:text-emerald-700 transition">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                      <MapPin size={13} className="text-emerald-600" />
+                      {item.location} · {item.seller_name}
+                    </p>
+                    <div className="mt-3 inline-block rounded-lg bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-700">
+                      Style: {item.preparation}
+                    </div>
+                  </div>
                 </div>
 
-                <h3 className="font-display text-lg font-bold text-lake-950">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{body}</p>
+                <div className="border-t border-slate-100 p-5 flex items-center justify-between bg-slate-50/50">
+                  <div>
+                    <span className="text-xs text-slate-500 block">Price</span>
+                    <span className="text-xl font-black text-slate-900">
+                      {item.price} ETB
+                      <span className="text-xs font-normal text-slate-500"> / {item.unit}</span>
+                    </span>
+                  </div>
+                  <Link
+                    href="/marketplace"
+                    className="rounded-xl bg-emerald-700 px-4 py-2 text-xs font-bold text-white hover:bg-emerald-800 transition"
+                  >
+                    Order Now
+                  </Link>
+                </div>
               </div>
-
-              <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-lake-900">
-                <CheckCircle2 size={14} className="text-lime-600" />
-                <span>Verified Quality Standards</span>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );
