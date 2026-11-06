@@ -3,13 +3,9 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { 
   ArrowRight, 
-  PlayCircle, 
   CheckCircle, 
   Anchor, 
-  Store, 
   PlusCircle, 
-  Clock, 
-  ShieldCheck, 
   MapPin, 
   ChevronRight 
 } from "lucide-react";
@@ -32,13 +28,25 @@ export default function HomePage() {
     <div className="min-h-screen bg-white text-slate-900 font-sans">
       <TopNav />
 
-      {/* Hero Section styled after AgriBridge with Lake Tana boat background */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-emerald-50/40 via-white to-slate-50 border-b border-slate-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-8 py-16 sm:py-24 lg:py-28 grid lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Hero Content */}
-          <div className="lg:col-span-7 z-10 space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/80 px-3.5 py-1.5 rounded-full">
+      {/* Hero Section with Lake Tana Background */}
+      <section className="relative min-h-[580px] lg:min-h-[640px] flex items-center overflow-hidden bg-white border-b border-slate-100">
+        {/* Background Image Layer */}
+        <div className="absolute inset-y-0 right-0 w-full lg:w-3/5 pointer-events-none">
+          <img
+            src="/lake-tana.jpg"
+            alt="Lake Tana Shoreline and Fishing Boat"
+            className="h-full w-full object-cover object-center lg:object-right"
+          />
+          {/* Desktop horizontal blend */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent hidden lg:block" />
+          {/* Mobile vertical blend */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/85 to-white/30 lg:hidden" />
+        </div>
+
+        {/* Text Content */}
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-8 py-16 sm:py-24">
+          <div className="max-w-2xl space-y-6">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/90 px-3.5 py-1.5 rounded-full backdrop-blur-sm shadow-sm">
               <Anchor size={14} className="text-emerald-700" />
               <span>Digital Lake Tana Fish Market & Logistics</span>
             </div>
@@ -47,11 +55,11 @@ export default function HomePage() {
               Connecting Lake Tana Catch to Verified Demand
             </h1>
 
-            <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
-              FishLink helps coordinate fresh morning catch, verified lakeside restaurant kitchens, and direct Bahir Dar doorstep delivery — from landing harbor to your table.
+            <p className="text-base sm:text-lg text-slate-700 font-medium max-w-xl leading-relaxed">
+              FishLink coordinates fresh morning catch, verified lakeside restaurant kitchens, and direct Bahir Dar doorstep delivery — from landing harbor to your table.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <Link
                 href="/marketplace"
                 className="inline-flex items-center gap-2.5 rounded-xl bg-emerald-700 px-6 py-3.5 text-base font-bold text-white shadow-md hover:bg-emerald-800 transition transform hover:-translate-y-0.5"
@@ -62,50 +70,28 @@ export default function HomePage() {
 
               <Link
                 href="/dashboard"
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-base font-bold text-slate-700 hover:bg-slate-50 transition"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white/90 backdrop-blur-sm px-6 py-3.5 text-base font-bold text-slate-700 hover:bg-slate-50 transition"
               >
                 <PlusCircle size={18} className="text-emerald-700" />
-                <span>Upload Produces & Dishes</span>
+                <span>Upload Item</span>
               </Link>
             </div>
 
-            {/* Value Checkmarks */}
-            <div className="pt-6 border-t border-slate-200/80 flex flex-wrap gap-6 text-xs sm:text-sm font-semibold text-slate-600">
+            <div className="pt-6 flex flex-wrap gap-6 text-xs sm:text-sm font-semibold text-slate-700">
               <div className="flex items-center gap-2">
-                <CheckCircle size={16} className="text-emerald-600" />
+                <CheckCircle size={16} className="text-emerald-700" />
                 <span>Zero Middlemen Fees</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle size={16} className="text-emerald-600" />
+                <CheckCircle size={16} className="text-emerald-700" />
                 <span>Landed at Dawn, Delivered by Noon</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle size={16} className="text-emerald-600" />
+                <CheckCircle size={16} className="text-emerald-700" />
                 <span>Doorstep OTP Verification</span>
               </div>
             </div>
           </div>
-
-          {/* Right Hero Visual with authentic Lake Tana boat scenery */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-lg lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
-              <img
-                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1000&q=80"
-                alt="Lake Tana Fishing Boat and Green Shoreline"
-                className="h-[380px] sm:h-[460px] w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
-                  Gende Wuha & Shimbit Ports
-                </span>
-                <h3 className="text-xl font-bold mt-1">Direct from Lake Tana Fishermen</h3>
-                <p className="text-xs text-slate-200 mt-1">
-                  Tilapia (Qurso), Catfish (Ambaza), and hot lakeside dishes delivered daily.
-                </p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
