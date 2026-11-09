@@ -22,7 +22,7 @@ export const FISH = [
     local: "Qurso",
     pricePerKg: 320,
     stockKg: 120,
-    img: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=600&q=60&auto=format",
+    img: "/images/tilapia.jpg",
   },
   {
     id: "catfish",
@@ -32,7 +32,7 @@ export const FISH = [
     local: "Ambaza",
     pricePerKg: 280,
     stockKg: 60,
-    img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=60&auto=format",
+    img: "/images/catfish.jpg",
   },
   {
     id: "perch",
@@ -42,7 +42,7 @@ export const FISH = [
     local: "Nile Perch",
     pricePerKg: 420,
     stockKg: 40,
-    img: "https://images.unsplash.com/photo-1498654200943-1088dd4208ce?w=600&q=60&auto=format",
+    img: "/images/perch.jpg",
   },
 ];
 
