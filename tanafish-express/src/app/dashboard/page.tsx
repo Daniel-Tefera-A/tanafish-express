@@ -19,19 +19,19 @@ import { ProductItem, ItemType } from "@/lib/types";
 const PHOTO_PRESETS = [
   {
     name: "Fresh Tilapia",
-    url: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&q=80",
+    url: "/images/tilapia.jpg",
   },
   {
     name: "Catfish (Ambaza)",
-    url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80",
+    url: "/images/catfish.jpg",
   },
   {
     name: "Crispy Asa Tibz",
-    url: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
+    url: "/images/tibz.jpg",
   },
   {
     name: "Asa Gulash Stew",
-    url: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=800&q=80",
+    url: "/images/gulash.jpg",
   },
 ];
 
